@@ -20,10 +20,10 @@ const styles = StyleSheet.create({
         borderColor: '#434750'
     },
     top:{
-        height: 110,
+        height: 105,
         justifyContent: 'center',
         alignItems: 'flex-start',
-        borderBottomWidth: 0.5,
+        borderBottomWidth: 0.2,
         paddingTop: 50,
         padding: 20,
     },

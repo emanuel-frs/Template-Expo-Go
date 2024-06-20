@@ -16,6 +16,7 @@ export default function(){
 const styles = StyleSheet.create({
     containerCode:{
         flex: 1,
-        padding: 20
+        padding: 5,
+        paddingHorizontal:20
     },
 })

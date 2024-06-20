@@ -13,7 +13,8 @@ export default function(){
 const styles = StyleSheet.create({
     principalPadrao:{
         width: '100%',
-        padding: 15,
+        padding: 12,
+        paddingHorizontal: 15,
         borderWidth: 1,
         borderColor: '#434750',
         backgroundColor: '#161B21',

@@ -1,23 +1,28 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import { Ionicons, MaterialIcons } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import Nave from './src/components/Nave/nave';
-import Foot from './src/components/Footer/foot';
-import Principal from './src/components/Principal/principal';
+import React, { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+import Home from './src/screens/Home';
+import Settings from './src/screens/Settings';
+import Footer from './src/components/Footer/foot';
 
 export default function App() {
+  const [activeTab, setActiveTab] = useState<'Home' | 'Settings'>('Home');
+
+  function handleTabPress(tab: 'Home' | 'Settings') {
+      setActiveTab(tab);
+  }
+
   return (
-    <View style={styles.container}>
-      <Nave/>
-      <Principal/>
-      <Foot/>
-    </View>
+      <View style={styles.container}>
+          {activeTab === 'Home' && <Home />}
+          {activeTab === 'Settings' && <Settings />}
+          <Footer onTabPress={handleTabPress} />
+      </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#0D1017'
+      flex: 1,
+      backgroundColor: '#0D1017'
   }
 });

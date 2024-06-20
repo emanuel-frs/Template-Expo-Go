@@ -5,8 +5,8 @@ export default function(){
         <View>
                 <View style={styles.treco}>
                     <View style={styles.outraDiv}>
-                    <Image source={require('../../../assets/development.png')} style={styles.develop}/>
-                    <Text style={styles.development}>Development servers</Text>
+                        <Image source={require('../../../assets/development.png')} style={styles.develop}/>
+                        <Text style={styles.development}>Development servers</Text>
                     </View>
                     <Text style={styles.help}>HELP</Text>
                 </View>
@@ -26,7 +26,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#161B21',
     },
     treco:{
-        padding:20,
+        padding:10,
+        paddingTop: 28,
         backgroundColor: '#0D1017',
         flexDirection: 'row',
         alignItems: 'center',
@@ -48,6 +49,7 @@ const styles = StyleSheet.create({
     },
     help:{
         color: '#8B929A',
+        fontSize: 12
     },
     textinho:{
         fontSize: 17,

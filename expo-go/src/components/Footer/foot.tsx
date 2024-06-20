@@ -1,28 +1,60 @@
-import { StyleSheet, View } from 'react-native';
-import Home from './footSetting/home';
-import Setting from './footHome/setting';
+import React, { useState } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 
-export default function(){
-    return(
-        <View style={[styles.footer, styles.formatoPadrao]}>
-            <Home/>
-            <Setting/>
+interface FooterProps {
+    onTabPress: (tab: 'Home' | 'Settings') => void;
+}
+
+export default function ({ onTabPress }: FooterProps) {
+    const [homeApertado, setHomeApertado] = useState(true);
+    const [settingApertado, setSettingApertado] = useState(false);
+
+    function homePressionado() {
+        setHomeApertado(true);
+        setSettingApertado(false);
+        onTabPress('Home');
+    }
+
+    function settingsPressionado() {
+        setSettingApertado(true);
+        setHomeApertado(false);
+        onTabPress('Settings');
+    }
+
+    return (
+        <View style={styles.footer}>
+            <TouchableOpacity onPress={homePressionado} style={styles.sett}>
+                <MaterialCommunityIcons name='home-variant' size={30} color={homeApertado ? "#A397E9" : "#CAD1D9"} />
+                {homeApertado && <Text style={styles.nome}>Home</Text>}
+            </TouchableOpacity>
+            <TouchableOpacity onPress={settingsPressionado} style={styles.sett}>
+                <MaterialIcons name='settings' size={30} color={settingApertado ? "#A397E9" : "#CAD1D9"} />
+                {settingApertado && <Text style={styles.nome}>Settings</Text>}
+            </TouchableOpacity>
         </View>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
-    formatoPadrao:{
-        width: '100%',
-        backgroundColor: '#161B21',
-        borderColor: '#434750'
-    },
-    footer:{
-        padding: 6,
-        borderTopWidth: 1,
+    footer: {
         flexDirection: 'row',
+        height: 55,
+        borderTopWidth: 0.5,
+        borderTopColor: '#434750',
+        backgroundColor: '#1D2228',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        paddingHorizontal: 95
+        justifyContent: 'center'
     },
-})
+    nome: {
+        color: '#A397E9',
+        fontSize: 12,
+        marginTop: -3
+    },
+    sett: {
+        height: '100%',
+        width: 160,
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
+});

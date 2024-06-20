@@ -13,9 +13,10 @@ const styles = StyleSheet.create({
         color: '#CAD1D9',
     },
     botao:{
-        padding: 10,
+        padding: 7,
         borderWidth: 1,
-        borderColor: '#8B929A',
+        borderColor: '#434750',
         borderRadius: 5,
+        justifyContent: 'center'
     },
 })
